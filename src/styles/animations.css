@@ -1,0 +1,154 @@
+/* Hover animation for movie cards */
+.movie-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Rating star animation */
+.rating-star {
+  animation: starPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Favorite heart animation */
+.favorite-button {
+  transition: transform 0.3s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button.active {
+  animation: heartBeat 0.3s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Navigation menu animation */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Cart button animation */
+.cart-button {
+  transition: transform 0.2s ease;
+}
+
+.cart-button:hover {
+  transform: scale(1.05);
+}
+
+.cart-button.added {
+  animation: addToCart 0.5s ease-in-out;
+}
+
+@keyframes addToCart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Search input animation */
+.search-input {
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  width: calc(100% + 50px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Movie poster image animation */
+.movie-poster {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Genre tags animation */
+.genre-tag {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.genre-tag:hover {
+  transform: translateY(-2px);
+}
+
+/* Rating animation */
+.rating {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Movie title animation */
+.movie-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.movie-card:hover .movie-title::after {
+  transform: translateX(100%);
+}
