@@ -46,6 +46,7 @@ export function Navigation() {
             >
               Admin Panel
             </Link>
+
           </div>
           <div className="flex items-center space-x-4">
             <Link

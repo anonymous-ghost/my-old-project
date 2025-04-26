@@ -4,6 +4,8 @@ import { SessionsProvider } from '@/hooks/useSessions';
 import { Navigation } from '@/components/Navigation';
 import AppRoutes from './routes';
 import './styles/animations.css';
+import Footer from './components/Footer';
+
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
             <main className="p-4">
               <AppRoutes />
             </main>
+
+            <Footer />
           </div>
         </SessionsProvider>
       </FilmsProvider>
