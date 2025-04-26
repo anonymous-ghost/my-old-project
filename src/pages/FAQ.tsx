@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const FAQ_DATA = [
   {
@@ -22,11 +22,6 @@ const FAQ_DATA = [
       'You can add sessions to the cart on the movie page. To place an order, go to the "Cart" section.'
   },
   {
-    question: 'Can I import movies from Excel?',
-    answer:
-      'Yes, in the "Admin Panel" there is an option to import movies from an Excel file.'
-  },
-  {
     question: 'Are data saved on the server?',
     answer:
       'No, all data (movies, favorites, cart) are stored only in the user\'s browser.'
@@ -38,18 +33,53 @@ const FAQ_DATA = [
   }
 ];
 
-export default function FAQ() {
+
+function FAQ() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-neutral-950 text-white py-8 px-4 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">FAQ — Часті питання</h1>
-      <div className="space-y-6">
-        {FAQ_DATA.map((item, idx) => (
-          <div key={idx} className="bg-neutral-900 rounded-lg p-4 shadow">
-            <h2 className="text-xl font-semibold mb-2">{item.question}</h2>
-            <p className="text-neutral-300 leading-relaxed">{item.answer}</p>
-          </div>
-        ))}
+      <h1 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h1>
+      <div className="space-y-4">
+        {FAQ_DATA.map((item, idx) => {
+          const open = openIdx === idx;
+          return (
+            <div key={idx} className="bg-neutral-900 rounded-lg shadow overflow-hidden transition-all">
+              <button
+                className="w-full flex justify-between items-center px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 group"
+                onClick={() => setOpenIdx(open ? null : idx)}
+                aria-expanded={open}
+                aria-controls={`faq-panel-${idx}`}
+              >
+                <span className="text-lg font-semibold text-left group-hover:text-blue-400 transition-colors">{item.question}</span>
+                <svg
+                  className={`w-5 h-5 ml-4 transform transition-transform duration-300 ${open ? 'rotate-90 text-blue-400' : 'rotate-0 text-neutral-400'}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <div
+                id={`faq-panel-${idx}`}
+                className={`px-6 pb-4 text-neutral-300 leading-relaxed transition-all duration-300 ease-in-out ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                style={{
+                  transitionProperty: 'max-height, opacity',
+                }}
+                aria-hidden={!open}
+              >
+                {item.answer}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
+
+export default FAQ;
+
+
