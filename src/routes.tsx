@@ -8,6 +8,7 @@ import SearchPage from './pages/Search';
 import CartPage from './pages/Cart';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 export default function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsOfService />} />
     </Routes>
   );
 }

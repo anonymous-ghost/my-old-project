@@ -17,7 +17,7 @@ export default function Footer() {
           <Link to="/faq" className="hover:text-white transition">FAQ</Link>
           <a href="#" className="hover:text-white transition">Contact</a>
           <Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link>
-          <a href="#" className="hover:text-white transition">Terms of Service</a>
+          <Link to="/terms" className="hover:text-white transition">Terms of Service</Link>
         </div>
       </div>
     </footer>
