@@ -6,6 +6,7 @@ import SessionsPage from './pages/Sessions';
 import MovieDetails from './pages/MovieDetails';
 import SearchPage from './pages/Search';
 import CartPage from './pages/Cart';
+import FAQ from './pages/FAQ';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
       <Route path="/movie/:id" element={<MovieDetails />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/faq" element={<FAQ />} />
     </Routes>
   );
 }
